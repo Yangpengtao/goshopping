@@ -1,0 +1,2 @@
+include ':app', ':base_components', ':proxy_compenents'
+rootProject.name='GoShopping'
