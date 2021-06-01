@@ -1,9 +1,14 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
+kapt {
+    arguments {
+        // ARouter 配置
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -49,5 +54,25 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'androidx.navigation:navigation-fragment:2.0.0'
     implementation 'androidx.navigation:navigation-ui:2.0.0'
-    implementation project(path: ':base_components')
+    implementation project(path: ':lib_common')
+    kapt  'com.alibaba:arouter-compiler:1.2.1'
+
+    if(!isHomeModule.toBoolean()){
+        implementation project(path: ':module_home')
+    }
+    if(!isLoginModule.toBoolean()){
+        implementation project(path: ':module_login')
+    }
+    if(!isMyggModule.toBoolean()){
+        implementation project(path: ':module_my_gg')
+    }
+    if(!isYouLikeModule.toBoolean()){
+        implementation project(path: ':module_you_like')
+    }
+    if(!isUserShowModule.toBoolean()){
+        implementation project(path: ':module_user_show')
+    }
+    if(!isMainModule.toBoolean()){
+        implementation project(path: ':module_main')
+    }
 }

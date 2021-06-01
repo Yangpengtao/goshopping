@@ -1,2 +1,2 @@
-include ':app', ':base_components', ':proxy_compenents'
+include ':app', ':lib_common', ':module_login', ':lib_base', ':module_home', ':module_user_show', ':module_you_like', ':module_my_gg', ':module_main'
 rootProject.name='GoShopping'
