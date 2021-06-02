@@ -1,21 +1,10 @@
 package com.go.module_main
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.alibaba.android.arouter.facade.annotation.Route
-import com.alibaba.android.arouter.launcher.ARouter
-import com.alibaba.android.arouter.launcher.ARouter.*
+import com.alibaba.android.arouter.launcher.ARouter.getInstance
 import com.go.shopping.base_components.toute_table.RouteTable
-import com.go.shopping.base_components.ui_base.BaseActivity
 import com.go.shopping.base_components.ui_base.BasePagerActivity
 import kotlinx.android.synthetic.main.activity_main.*
 

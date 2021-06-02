@@ -1,67 +1,72 @@
-package com.go.shopping.base_components.proxy/*
-package com.oomall.kouclodelivery.proxy
+package com.go.shopping.base_components.proxy
 
-import com.go.shopping.base_components.ui_proxy.ISharedPreferenceProcessor
+import com.go.lib_base1.shared_preference.interfaces.ISharedPreferenceProcessor
 
-*/
 /**
  * sp的代理
- *//*
+ */
 
-object HelperSharedPreference :
+object HelperSharedPreference  :
     ISharedPreferenceProcessor {
 
 
+
+    private var mSharedPreferenceProcessor: ISharedPreferenceProcessor? = null
+
+    fun  init( iSharedPreferenceProcessor: ISharedPreferenceProcessor) {
+        mSharedPreferenceProcessor = iSharedPreferenceProcessor
+    }
+
     override fun _putData(key: String, value: Any) {
-        SharedPreferenceProcessor._putData(key, value)
+        mSharedPreferenceProcessor!!._putData(key, value)
     }
 
     override fun _getData(key: String, dataType: Int): Any {
-        return SharedPreferenceProcessor._getData(key, dataType)
+        return mSharedPreferenceProcessor!!._getData(key, dataType)
     }
 
     override fun _getData(key: String, defaulrValue: Any, dataType: Int): Any {
-        return SharedPreferenceProcessor._getData(key, defaulrValue, dataType)
+        return mSharedPreferenceProcessor!!._getData(key, defaulrValue, dataType)
     }
 
     override fun _getBoolean(key: String, defaulrValue: Boolean): Boolean {
-        return SharedPreferenceProcessor._getBoolean(key, defaulrValue)
+        return mSharedPreferenceProcessor!!._getBoolean(key, defaulrValue)
     }
 
     override fun _getInt(key: String, defaulrValue: Int): Int {
-        return SharedPreferenceProcessor._getInt(key, defaulrValue)
+        return mSharedPreferenceProcessor!!._getInt(key, defaulrValue)
     }
 
     override fun _getFloat(key: String, defaulrValue: Float): Float {
-        return SharedPreferenceProcessor._getFloat(key, defaulrValue)
+        return mSharedPreferenceProcessor!!._getFloat(key, defaulrValue)
     }
 
     override fun _getLong(key: String, defaulrValue: Long): Long {
-        return SharedPreferenceProcessor._getLong(key, defaulrValue)
+        return mSharedPreferenceProcessor!!._getLong(key, defaulrValue)
     }
 
     override fun _getString(key: String, defaulrValue: String): String {
-        return SharedPreferenceProcessor._getString(key, defaulrValue)
+        return mSharedPreferenceProcessor!!._getString(key, defaulrValue)
     }
 
     override fun _getBoolean(key: String): Boolean {
-        return SharedPreferenceProcessor._getBoolean(key)
+        return mSharedPreferenceProcessor!!._getBoolean(key)
     }
 
     override fun _getInt(key: String): Int {
-        return SharedPreferenceProcessor._getInt(key)
+        return mSharedPreferenceProcessor!!._getInt(key)
     }
 
     override fun _getFloat(key: String): Float {
-        return SharedPreferenceProcessor._getFloat(key)
+        return mSharedPreferenceProcessor!!._getFloat(key)
     }
 
     override fun _getLong(key: String): Long {
-        return SharedPreferenceProcessor._getLong(key)
+        return mSharedPreferenceProcessor!!._getLong(key)
     }
 
     override fun _getString(key: String): String {
-        return SharedPreferenceProcessor._getString(key)
+        return mSharedPreferenceProcessor!!._getString(key)
     }
 
-}*/
+}

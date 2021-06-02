@@ -1,5 +1,6 @@
 package com.go.shopping.base_components.ui_base
 
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
@@ -12,14 +13,19 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.go.lib_base1.image.GlideProcessor
+import com.go.lib_base1.network.okhttp.OKHttpProcessor
+import com.go.lib_base1.shared_preference.SharedPreferenceProcessor
 import com.go.shopping.base_components.R
+import com.go.shopping.base_components.proxy.HelperHttp
+import com.go.shopping.base_components.proxy.HelperImageLoader
+import com.go.shopping.base_components.proxy.HelperSharedPreference
 import com.go.shopping.base_components.tools.PermissionUtils
 import com.go.shopping.base_components.tools.statusbar.StatusBarUtil
 
 /**
  * 基础类
  */
-@Route(path = "/ddd/ddddds")
 abstract class BaseActivity : AppCompatActivity(), PermissionUtils.PermissiontCallBack {
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -36,7 +42,7 @@ abstract class BaseActivity : AppCompatActivity(), PermissionUtils.PermissiontCa
                 this,
                 ContextCompat.getColor(this, R.color.colorPrimary)
             )
-            true -> StatusBarUtil.setColorNoTranslucent(this,Color.TRANSPARENT)
+            true -> StatusBarUtil.setColorNoTranslucent(this, Color.TRANSPARENT)
         }
     }
 
@@ -113,6 +119,12 @@ abstract class BaseActivity : AppCompatActivity(), PermissionUtils.PermissiontCa
                 permissionFailed()
             }
         }
+    }
+
+    fun initBaseLib(context: Context) {
+        HelperHttp.init(OKHttpProcessor(context))
+        HelperSharedPreference.init(SharedPreferenceProcessor(context))
+        HelperImageLoader.init(GlideProcessor)
     }
 
 

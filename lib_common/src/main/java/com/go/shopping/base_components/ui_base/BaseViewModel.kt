@@ -1,9 +1,9 @@
 package com.go.shopping.base_components.ui_base
 
 import androidx.lifecycle.ViewModel
+import com.go.lib_base1.network.interfaces.ICallback
+import com.go.lib_base1.network.interfaces.IHttpProcessor
 import com.go.shopping.base_components.proxy.HelperHttp
-import com.go.shopping.base_components.proxy.interfaces.ICallback
-import com.go.shopping.base_components.proxy.interfaces.IHttpProcessor
 import java.io.File
 
 abstract class BaseViewModel : ViewModel(),
@@ -13,11 +13,11 @@ abstract class BaseViewModel : ViewModel(),
     }
 
     override fun _post(url: String, params: Map<String, Any>, callback: ICallback) {
-        HelperHttp._post(HelperHttp.BASE_URL + url, params, callback)
+        HelperHttp._post(url, params, callback)
     }
 
     override fun _get(url: String, params: Map<String, Any>, callback: ICallback) {
-        HelperHttp._get(HelperHttp.BASE_URL + url, params, callback)
+        HelperHttp._get(url, params, callback)
     }
 
 }

@@ -1,55 +1,72 @@
 package com.go.module_login.ui.login
 
+import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import android.util.Patterns
-import com.go.module_login.data.LoginRepository
-import com.go.module_login.data.Result
+import com.go.lib_base1.network.HttpCallback
+import com.go.module_login.data.model.LoggedInUser
+import com.go.shopping.base_components.tools.ToastUtil
+import com.go.shopping.base_components.ui_base.BaseViewModel
+import java.util.*
 
-import com.go.module_login.R
+/**
+ * 用户信息类逻辑处理
+ */
+ class LoginViewModel : BaseViewModel() {
 
-class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
+    //登陆页的滑动验证
+    var slitherVeriry: Boolean = false
 
-    private val _loginForm = MutableLiveData<LoginFormState>()
-    val loginFormState: LiveData<LoginFormState> = _loginForm
+    private val _loginForm = MutableLiveData<LoginResult>()
+    val loginFormState: LiveData<LoginResult> = _loginForm
 
-    private val _loginResult = MutableLiveData<LoginResult>()
-    val loginResult: LiveData<LoginResult> = _loginResult
+    fun loginForCode(username: String, code: String) {
+        _loginForm.value = LoginResult(success = true)
+        return
 
-    fun login(username: String, password: String) {
-        // can be launched in a separate asynchronous job
-        val result = loginRepository.login(username, password)
-
-        if (result is Result.Success) {
-            _loginResult.value =
-                LoginResult(success = LoggedInUserView(displayName = result.data.displayName))
-        } else {
-            _loginResult.value = LoginResult(error = R.string.login_failed)
-        }
-    }
-
-    fun loginDataChanged(username: String, password: String) {
         if (!isUserNameValid(username)) {
-            _loginForm.value = LoginFormState(usernameError = R.string.invalid_username)
-        } else if (!isPasswordValid(password)) {
-            _loginForm.value = LoginFormState(passwordError = R.string.invalid_password)
+            _loginForm.value = LoginResult(success = false)
+        } else if (!isCodeValid(code)) {
+            _loginForm.value = LoginResult(success = false)
         } else {
-            _loginForm.value = LoginFormState(isDataValid = true)
+            val map = TreeMap<String, Any>()
+            map.put("user_name", username)
+            map.put("password", code)
+            map.put("cityname", "北京")
+            _post(LoginContants.LOGIN, map, object : HttpCallback<LoggedInUser>() {
+                override fun onSuccess(objResult: LoggedInUser) {
+                    _loginForm.value = LoginResult(success = true, data = objResult)
+                }
+
+                override fun onFailure(e: String) {
+                    _loginForm.value = LoginResult(success = false, error = e)
+                }
+            })
         }
     }
 
-    // A placeholder username validation check
+
     private fun isUserNameValid(username: String): Boolean {
-        return if (username.contains('@')) {
-            Patterns.EMAIL_ADDRESS.matcher(username).matches()
+        return if (username.length == 11) {
+            Patterns.PHONE.matcher(username).matches()
         } else {
             username.isNotBlank()
         }
     }
 
-    // A placeholder password validation check
+    private fun isCodeValid(code: String): Boolean {
+        return code.isNotBlank()
+    }
+
     private fun isPasswordValid(password: String): Boolean {
         return password.length > 5
     }
+
+
+    data class LoginResult(
+        val data: LoggedInUser? = null,
+        val error: String? = null,
+        val success: Boolean = false
+    )
+
 }

@@ -2,7 +2,7 @@ package com.go.shopping.base_components.proxy
 
 import android.net.Uri
 import android.widget.ImageView
-import com.go.shopping.base_components.proxy.interfaces.IImageLoaderProcessor
+import com.go.lib_base1.image.interfaces.IImageLoaderProcessor
 
 object HelperImageLoader :
     IImageLoaderProcessor {
@@ -27,8 +27,6 @@ object HelperImageLoader :
     fun init(httpProcessor: IImageLoaderProcessor) {
         mHttpProcessor = httpProcessor
     }
-    init {
 
-    }
 
 }

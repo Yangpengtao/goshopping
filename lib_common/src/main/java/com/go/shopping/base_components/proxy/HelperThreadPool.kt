@@ -1,14 +1,14 @@
-package com.go.shopping.base_components.proxy/*
-package com.go.shopping.proxy_compenents
+package com.go.shopping.base_components.proxy
 
-import com.go.shopping.base_components.ui_proxy.IThreadProcessor
+import com.go.lib_base1.thread_pool.ThreadPoolProcessor
+import com.go.lib_base1.thread_pool.interfaces.IThreadProcessor
+
 import java.util.concurrent.Future
 
-*/
+
 /**
  * 线程池
- *//*
-
+ */
 object HelperThreadPool : IThreadProcessor {
 
 
@@ -25,4 +25,3 @@ object HelperThreadPool : IThreadProcessor {
     }
 
 }
-*/

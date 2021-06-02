@@ -1,6 +1,5 @@
+@file:Suppress("DEPRECATION")
 package com.go.module_main
-
-
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -16,8 +15,8 @@ class MainPagerAdapter(fm: FragmentManager, private val mFragments: Array<Fragme
         return mFragments.size
     }
 
-    override fun getItem(position: Int): Fragment? {
-        return mFragments[position]
+    override fun getItem(position: Int): Fragment {
+        return mFragments[position]!!
     }
 
 

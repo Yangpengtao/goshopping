@@ -1,7 +1,7 @@
 package com.go.shopping.base_components.proxy
 
-import com.go.shopping.base_components.proxy.interfaces.ICallback
-import com.go.shopping.base_components.proxy.interfaces.IHttpProcessor
+import com.go.lib_base1.network.interfaces.ICallback
+import com.go.lib_base1.network.interfaces.IHttpProcessor
 import java.io.File
 
 import java.io.UnsupportedEncodingException
@@ -15,7 +15,6 @@ import java.net.URLEncoder
  */
 object HelperHttp : IHttpProcessor {
 
-    val BASE_URL="";
 
     override fun _post(url: String, params: Map<String, Any>, callback: ICallback) {
         //        final String finalUrl =appendParams(url,params);
