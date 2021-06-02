@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.go.module_you_like">
 
-    <application >
-        <activity android:name=".YouLikeActivity">
-        </activity>
+    <application>
+        <activity android:name=".mydialog.DialogActivity"></activity>
+        <activity android:name=".YouLikeActivity"></activity>
     </application>
 
 </manifest>

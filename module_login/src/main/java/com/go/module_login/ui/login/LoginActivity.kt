@@ -37,13 +37,11 @@ class LoginActivity : BaseActivity(), View.OnClickListener, SlitherVerifyView.Ca
             if (loginState.success) {
                 ToastUtil.show(this, "登陆成功！")
                 ARouter.getInstance().build(RouteTable.MAIN_ACTITIVTY).navigation()
+                finish()
             } else {
                 ToastUtil.show(this, "登陆失败！")
             }
-
         })
-
-
     }
 
     private fun setListener() {

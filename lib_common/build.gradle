@@ -45,5 +45,6 @@ dependencies {
     api project(path: ':lib_base')
     api 'com.alibaba:arouter-api:1.4.0'
     kapt  'com.alibaba:arouter-compiler:1.2.1'
+    implementation 'com.android.support:recyclerview-v7:30.0.0'
 
 }

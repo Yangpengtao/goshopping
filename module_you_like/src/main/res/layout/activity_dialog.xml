@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/dialog_top_bg"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:text="商品详情"
+        android:textColor="#333"
+
+
+        android:textSize="14sp" />
+
+    <!--  <ImageView
+          android:id="@+id/goodsImg"
+          android:layout_width="match_parent"
+          android:layout_height="300dp"
+          android:background="#dfdfdf"
+          android:scaleType="fitCenter" />-->
+
+    <com.youth.banner.Banner
+        android:id="@+id/goodsImgs"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@color/coloreee" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="韩国时尚品牌chuu"
+            android:textColor="#666"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="树叶沙滩吊带长裙"
+            android:textColor="#333"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:text="￥312.00"
+                android:textColor="#333"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_margin="4dp"
+                android:text="214已售"
+                android:textColor="#666"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_go"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@drawable/dialog_buttom_bg"
+        android:text="去下单"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
+</LinearLayout>

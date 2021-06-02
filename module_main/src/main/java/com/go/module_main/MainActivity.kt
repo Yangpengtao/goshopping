@@ -18,8 +18,6 @@ class MainActivity : BasePagerActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setTitleColorTransparent(false)
-        val fragmentManager = supportFragmentManager
-        val transaction = fragmentManager.beginTransaction()
         home = getInstance()
             .build(RouteTable.HOME_FRAGMENT)
             .navigation() as Fragment
@@ -40,7 +38,7 @@ class MainActivity : BasePagerActivity() {
 
         val adapter = MainPagerAdapter(supportFragmentManager, fragments)
         view_page.adapter = adapter
-        view_page.offscreenPageLimit = 2
+        view_page.offscreenPageLimit = 3
 
         nav_view.setOnNavigationItemSelectedListener {
             when (it.itemId) {

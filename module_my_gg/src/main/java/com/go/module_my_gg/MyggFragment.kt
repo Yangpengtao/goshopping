@@ -1,11 +1,12 @@
 package com.go.module_my_gg
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.alibaba.android.arouter.launcher.ARouter
 import com.go.shopping.base_components.toute_table.RouteTable
 import kotlinx.android.synthetic.main.fragment_mygg.*
 
@@ -25,10 +26,7 @@ class MyggFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         btnAdd.setOnClickListener {
-            i++
-            tv_empty.text = " i'm is " + i
-
-
+            ARouter.getInstance().build(RouteTable.LOGIN_ACTITIVTY).navigation()
         }
     }
 
