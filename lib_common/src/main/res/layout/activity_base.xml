@@ -8,6 +8,7 @@
     android:background="@android:color/white"
     android:orientation="vertical">
 
+
     <RelativeLayout
         android:id="@+id/title_parent"
         android:layout_width="match_parent"

@@ -10,14 +10,14 @@ kapt {
     }
 }
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
         applicationId "com.go.shopping"
-        minSdkVersion 21
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
@@ -31,48 +31,34 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    externalNativeBuild {
-        cmake {
-            path "src/main/cpp/CMakeLists.txt"
-            version "3.10.2"
-        }
-    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-    implementation 'com.google.android.material:material:1.0.0'
-    implementation 'androidx.navigation:navigation-fragment:2.0.0'
-    implementation 'androidx.navigation:navigation-ui:2.0.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.core:core-ktx:1.3.2'
     implementation project(path: ':lib_common')
-    kapt  'com.alibaba:arouter-compiler:1.2.1'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
+    kapt 'com.alibaba:arouter-compiler:1.2.1'
 
-    if(!isHomeModule.toBoolean()){
+    if (!isHomeModule.toBoolean()) {
         implementation project(path: ':module_home')
     }
-    if(!isLoginModule.toBoolean()){
+    if (!isLoginModule.toBoolean()) {
         implementation project(path: ':module_login')
     }
-    if(!isMyggModule.toBoolean()){
+    if (!isMyggModule.toBoolean()) {
         implementation project(path: ':module_my_gg')
     }
-    if(!isYouLikeModule.toBoolean()){
+    if (!isYouLikeModule.toBoolean()) {
         implementation project(path: ':module_you_like')
     }
-    if(!isUserShowModule.toBoolean()){
+    if (!isUserShowModule.toBoolean()) {
         implementation project(path: ':module_user_show')
     }
-    if(!isMainModule.toBoolean()){
+    if (!isMainModule.toBoolean()) {
         implementation project(path: ':module_main')
     }
 }

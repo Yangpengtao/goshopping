@@ -2,6 +2,7 @@ package com.go.module_main
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.viewpager2.widget.ViewPager2
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter.getInstance
 import com.go.shopping.base_components.toute_table.RouteTable
@@ -10,10 +11,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 @Route(path = RouteTable.MAIN_ACTITIVTY)
 class MainActivity : BasePagerActivity() {
-    var youLike: Fragment? = null
-    var userShow: Fragment? = null
-    var mygg: Fragment? = null
-    var home: Fragment? = null
+    private var youLike: Fragment? = null
+    private var userShow: Fragment? = null
+    private var mygg: Fragment? = null
+    private var home: Fragment? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,9 +37,14 @@ class MainActivity : BasePagerActivity() {
         fragments[2] = userShow
         fragments[3] = mygg
 
-        val adapter = MainPagerAdapter(supportFragmentManager, fragments)
+        val adapter = MainPagerAdapter(this, fragments)
         view_page.adapter = adapter
-        view_page.offscreenPageLimit = 3
+        view_page.offscreenPageLimit = 1
+        view_page.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                nav_view.selectedItemId = nav_view.menu.getItem(position).itemId
+            }
+        })
 
         nav_view.setOnNavigationItemSelectedListener {
             when (it.itemId) {
@@ -58,11 +64,5 @@ class MainActivity : BasePagerActivity() {
             true
         }
     }
-
-    override fun onPageSelected(position: Int) {
-        super.onPageSelected(position)
-        view_page.currentItem = position
-    }
-
 
 }
