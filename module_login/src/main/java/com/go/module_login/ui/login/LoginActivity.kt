@@ -11,10 +11,9 @@ import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.go.module_login.R
 import com.go.module_login.weight.SlitherVerifyView
-import com.go.shopping.base_components.tools.ToastUtil
-import com.go.shopping.base_components.tools.statusbar.StatusBarUtil
+import com.go.shopping.utils.ToastUtil
 import com.go.shopping.base_components.toute_table.RouteTable
-import com.go.shopping.base_components.ui_base.BaseActivity
+import com.go.shopping.ui_base.BaseActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 @Route(path = RouteTable.LOGIN_ACTITIVTY)

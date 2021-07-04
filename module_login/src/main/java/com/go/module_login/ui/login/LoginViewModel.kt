@@ -5,8 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.go.lib_base1.network.HttpCallback
 import com.go.module_login.data.model.LoggedInUser
-import com.go.shopping.base_components.tools.ToastUtil
-import com.go.shopping.base_components.ui_base.BaseViewModel
+import com.go.shopping.ui_base.BaseViewModel
 import java.util.*
 
 /**

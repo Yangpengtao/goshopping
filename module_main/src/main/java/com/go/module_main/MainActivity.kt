@@ -6,7 +6,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter.getInstance
 import com.go.shopping.base_components.toute_table.RouteTable
-import com.go.shopping.base_components.ui_base.BasePagerActivity
+import com.go.shopping.ui_base.BasePagerActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 @Route(path = RouteTable.MAIN_ACTITIVTY)

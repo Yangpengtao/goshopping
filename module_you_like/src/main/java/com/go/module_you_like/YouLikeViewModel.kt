@@ -3,8 +3,7 @@ package com.go.module_you_like
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.go.module_you_like.data.YouLikeBean
-import com.go.shopping.base_components.tools.LogPrinter
-import com.go.shopping.base_components.ui_base.BaseViewModel
+import com.go.shopping.ui_base.BaseViewModel
 
 class YouLikeViewModel : BaseViewModel() {
     private val _youLike = MutableLiveData<ArrayList<YouLikeBean>>()

@@ -10,7 +10,7 @@ import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import androidx.core.content.ContextCompat
 import com.go.module_login.R
-import com.go.shopping.base_components.tools.ScreenUtils
+import com.go.shopping.utils.ScreenUtils
 import kotlinx.android.synthetic.main.framlayout_slither_verify.view.*
 
 /**

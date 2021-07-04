@@ -17,9 +17,9 @@ import com.go.shopping.base_components.adapter.BaseAdapter
 import com.go.shopping.base_components.adapter.BaseViewHolder
 import com.go.shopping.base_components.adapter.RecyclerViewUtils
 import com.go.shopping.base_components.adapter.SpacesItemDecoration
-import com.go.shopping.base_components.tools.ToastUtil
+import com.go.shopping.utils.ToastUtil
 import com.go.shopping.base_components.toute_table.RouteTable
-import com.go.shopping.base_components.ui_base.BaseTitleFragment
+import com.go.shopping.ui_base.BaseTitleFragment
 import kotlinx.android.synthetic.main.you_like_fragment.*
 import java.util.*
 

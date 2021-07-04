@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.go.shopping.base_components.toute_table.RouteTable
-import com.go.shopping.base_components.ui_base.BaseFragment
+import com.go.shopping.ui_base.BaseFragment
 
 
 @Route(path = RouteTable.HOME_FRAGMENT)

@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.go.module_main.MainActivity
-import com.go.shopping.base_components.ui_base.BaseActivity
+import com.go.shopping.ui_base.BaseActivity
 
 class SplashActivity : BaseActivity() {
 
