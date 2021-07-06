@@ -1,5 +1,5 @@
 
-package com.go.lib_base1.map;
+package com.go.shopping.lib_base.map;
 
 import com.amap.api.maps2d.model.LatLng;
 import com.amap.api.services.core.LatLonPoint;

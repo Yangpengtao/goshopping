@@ -1,4 +1,4 @@
-package com.go.lib_base1.map.overlay;
+package com.go.shopping.lib_base.map.overlay;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -7,7 +7,7 @@ import android.graphics.Color;
 import com.amap.api.maps2d.AMap;
 import com.amap.api.maps2d.CameraUpdateFactory;
 import com.amap.api.maps2d.model.*;
-import com.go.lib_base1.R;
+import com.go.shopping.R;
 
 import java.util.ArrayList;
 import java.util.List;

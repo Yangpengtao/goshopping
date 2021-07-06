@@ -1,4 +1,4 @@
-package com.go.lib_base1.map.overlay;
+package com.go.shopping.lib_base.map.overlay;
 
 import android.content.Context;
 
@@ -7,11 +7,11 @@ import com.amap.api.maps2d.model.*;
 import com.amap.api.services.core.LatLonPoint;
 import com.amap.api.services.route.RidePath;
 import com.amap.api.services.route.RideStep;
+import com.go.shopping.R;
+import com.go.shopping.lib_base.map.AMapUtil;
 
 import java.util.List;
 
-import com.go.lib_base1.R;
-import com.go.lib_base1.map.AMapUtil;
 
 /**
  * 从商家到买家的距离的骑行路线图层类。

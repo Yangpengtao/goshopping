@@ -1,7 +1,7 @@
 package com.go.shopping.utils
 
 import android.util.Log
-import com.go.lib_base1.BuildConfig
+import com.go.shopping.BuildConfig
 
 /**
  * 日志输出类，统一管理日志输出

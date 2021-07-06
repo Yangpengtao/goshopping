@@ -27,7 +27,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener, SlitherVerifyView.Ca
         setContentView(R.layout.activity_login)
         setTitleColorTransparent(false)
         setListener()
-        initBaseLib(this)
         loginViewModel = ViewModelProviders.of(this)
             .get(LoginViewModel::class.java)
 

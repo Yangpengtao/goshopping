@@ -1,3 +1,4 @@
+/*
 package com.go.lib_base1.image.utils
 
 import android.content.Context
@@ -5,9 +6,11 @@ import android.graphics.*
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
 import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
 
+*/
 /**
  * 圆形
- */
+ *//*
+
 class GlideCircleTransform(context: Context) : BitmapTransformation(context) {
 
     override fun transform(pool: BitmapPool, toTransform: Bitmap, outWidth: Int, outHeight: Int): Bitmap? {
@@ -37,3 +40,4 @@ class GlideCircleTransform(context: Context) : BitmapTransformation(context) {
         return javaClass.name
     }
 }
+*/

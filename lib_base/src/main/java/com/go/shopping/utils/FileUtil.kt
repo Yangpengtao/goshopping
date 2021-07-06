@@ -112,7 +112,7 @@ object FileUtil {
 
     fun getFileImage(fileName: String): File {
         val imgPath = File(baseImageDir)
-        LogPrinter.e(
+        LogPrinter.error(
             "FileUtil",
             "-----${File(imgPath, fileName)}"
         )

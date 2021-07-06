@@ -4,8 +4,6 @@ import android.net.Uri
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.go.lib_base1.image.interfaces.IImageLoaderProcessor
-import com.go.lib_base1.image.utils.GlideCircleTransform
-import com.go.lib_base1.image.utils.GlideRoundTransform
 
 object GlideProcessor : IImageLoaderProcessor {
     override fun loadNormalImage(imageView: ImageView, uri: Uri) {
