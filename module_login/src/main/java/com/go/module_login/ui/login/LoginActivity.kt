@@ -16,7 +16,7 @@ import com.go.shopping.base_components.toute_table.RouteTable
 import com.go.shopping.ui_base.BaseActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
-@Route(path = RouteTable.LOGIN_ACTITIVTY)
+@Route(path = RouteTable.LOGIN_ACTIVITY)
 class LoginActivity : BaseActivity(), View.OnClickListener, SlitherVerifyView.CallBack,
     CompoundButton.OnCheckedChangeListener {
 
@@ -34,7 +34,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener, SlitherVerifyView.Ca
             val loginState = it ?: return@Observer
             if (loginState.success) {
                 ToastUtil.show(this, "登陆成功！")
-                ARouter.getInstance().build(RouteTable.MAIN_ACTITIVTY).navigation()
+                ARouter.getInstance().build(RouteTable.MAIN_ACTIVITY).navigation()
                 finish()
             } else {
                 ToastUtil.show(this, "登陆失败！")

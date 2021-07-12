@@ -1,20 +1,20 @@
-package com.go.lib_base1.shared_preference.interfaces
+package com.go.shopping.lib_base.shared_preference.interfaces
 
 interface ISharedPreferenceProcessor {
-    fun _putData(key: String, value: Any)
-    fun _getData(key: String, dataType: Int): Any
-    fun _getData(key: String, defaulrValue: Any, dataType: Int): Any
+    fun putData(key: String, value: Any)
+    fun getData(key: String, dataType: Int): Any
+    fun getData(key: String, defaultValue: Any, dataType: Int): Any
 
-    fun _getBoolean(key: String, defaulrValue: Boolean): Boolean
-    fun _getInt(key: String, defaulrValue: Int): Int
-    fun _getFloat(key: String, defaulrValue: Float): Float
-    fun _getLong(key: String, defaulrValue: Long): Long
-    fun _getString(key: String, defaulrValue: String): String
+    fun getBoolean(key: String, defaultValue: Boolean): Boolean
+    fun getInt(key: String, defaultValue: Int): Int
+    fun getFloat(key: String, defaultValue: Float): Float
+    fun getLong(key: String, defaultValue: Long): Long
+    fun getString(key: String, defaultValue: String): String
 
-    fun _getBoolean(key: String): Boolean
-    fun _getInt(key: String): Int
-    fun _getFloat(key: String): Float
-    fun _getLong(key: String): Long
-    fun _getString(key: String): String
+    fun getBoolean(key: String): Boolean
+    fun getInt(key: String): Int
+    fun getFloat(key: String): Float
+    fun getLong(key: String): Long
+    fun getString(key: String): String
 
 }

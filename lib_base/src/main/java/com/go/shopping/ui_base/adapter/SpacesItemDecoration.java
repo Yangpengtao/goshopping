@@ -1,4 +1,4 @@
-package com.go.shopping.base_components.adapter;
+package com.go.shopping.ui_base.adapter;
 
 import android.graphics.Rect;
 import android.view.View;

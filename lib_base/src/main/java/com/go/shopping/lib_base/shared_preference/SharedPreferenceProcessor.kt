@@ -1,8 +1,11 @@
-package com.go.lib_base1.shared_preference
+package com.go.shopping.lib_base.shared_preference
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.go.lib_base1.shared_preference.interfaces.ISharedPreferenceProcessor
+import android.os.Build
+import androidx.annotation.RequiresApi
+import com.go.shopping.lib_base.shared_preference.interfaces.ISharedPreferenceProcessor
+import com.go.shopping.proxy.HelperThreadPool
 
 /**
  * sp 生成器
@@ -20,7 +23,8 @@ class SharedPreferenceProcessor(context: Context) :
     }
 
 
-    override fun _putData(key: String, value: Any) {
+    @RequiresApi(Build.VERSION_CODES.GINGERBREAD)
+    override fun putData(key: String, value: Any) {
         when (value) {
             is String -> {
                 sharedPreferences!!.edit().putString(key, value).apply()
@@ -42,68 +46,68 @@ class SharedPreferenceProcessor(context: Context) :
         }
     }
 
-    override fun _getData(key: String, dataType: Int): Any {
-        return _getData(key, 0, dataType)
+    override fun getData(key: String, dataType: Int): Any {
+        return getData(key, 0, dataType)
     }
 
-    override fun _getData(key: String, defaulrValue: Any, dataType: Int): Any {
+    override fun getData(key: String, defaultValue: Any, dataType: Int): Any {
         when (dataType) {
-            SpType._STRING -> {
-                return sharedPreferences!!.getString(key, defaulrValue as String) as String
+            SpType.STRING -> {
+                return sharedPreferences!!.getString(key, defaultValue as String) as String
             }
-            SpType._BOOLEAD -> {
-                return sharedPreferences!!.getBoolean(key, defaulrValue as Boolean)
+            SpType.BOOLEAN -> {
+                return sharedPreferences!!.getBoolean(key, defaultValue as Boolean)
             }
-            SpType._FLOAT -> {
-                return sharedPreferences!!.getFloat(key, defaulrValue as Float)
+            SpType.FLOAT -> {
+                return sharedPreferences!!.getFloat(key, defaultValue as Float)
             }
-            SpType._INT -> {
-                return sharedPreferences!!.getInt(key, defaulrValue as Int)
+            SpType.INT -> {
+                return sharedPreferences!!.getInt(key, defaultValue as Int)
             }
-            SpType._LONG -> {
-                return sharedPreferences!!.getLong(key, defaulrValue as Long)
+            SpType.LONG -> {
+                return sharedPreferences!!.getLong(key, defaultValue as Long)
             }
         }
         return 0
     }
 
-    override fun _getBoolean(key: String, defaulrValue: Boolean): Boolean {
-        return sharedPreferences!!.getBoolean(key, defaulrValue)
+    override fun getBoolean(key: String, defaultValue: Boolean): Boolean {
+        return sharedPreferences!!.getBoolean(key, defaultValue)
     }
 
-    override fun _getInt(key: String, defaulrValue: Int): Int {
-        return sharedPreferences!!.getInt(key, defaulrValue)
+    override fun getInt(key: String, defaultValue: Int): Int {
+        return sharedPreferences!!.getInt(key, defaultValue)
     }
 
-    override fun _getFloat(key: String, defaulrValue: Float): Float {
-        return sharedPreferences!!.getFloat(key, defaulrValue)
+    override fun getFloat(key: String, defaultValue: Float): Float {
+        return sharedPreferences!!.getFloat(key, defaultValue)
     }
 
-    override fun _getLong(key: String, defaulrValue: Long): Long {
-        return sharedPreferences!!.getLong(key, defaulrValue)
+    override fun getLong(key: String, defaultValue: Long): Long {
+        return sharedPreferences!!.getLong(key, defaultValue)
     }
 
-    override fun _getString(key: String, defaulrValue: String): String {
-        return sharedPreferences!!.getString(key, defaulrValue).toString()
+    override fun getString(key: String, defaultValue: String): String {
+        return sharedPreferences!!.getString(key, defaultValue).toString()
     }
 
-    override fun _getBoolean(key: String): Boolean {
+    override fun getBoolean(key: String): Boolean {
         return sharedPreferences!!.getBoolean(key, false)
     }
 
-    override fun _getInt(key: String): Int {
+    override fun getInt(key: String): Int {
         return sharedPreferences!!.getInt(key, 0)
     }
 
-    override fun _getFloat(key: String): Float {
+    override fun getFloat(key: String): Float {
         return sharedPreferences!!.getFloat(key, 0F)
     }
 
-    override fun _getLong(key: String): Long {
+    override fun getLong(key: String): Long {
         return sharedPreferences!!.getLong(key, 0L)
     }
 
-    override fun _getString(key: String): String {
+    override fun getString(key: String): String {
         return sharedPreferences!!.getString(key, "").toString()
     }
 }

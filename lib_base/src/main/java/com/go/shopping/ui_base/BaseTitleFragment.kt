@@ -10,6 +10,7 @@ import android.widget.TextView
 import com.go.shopping.R
 import kotlinx.android.synthetic.main.activity_base.*
 
+@Deprecated("该类嵌套太多，已过时")
 abstract class BaseTitleFragment: BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater,

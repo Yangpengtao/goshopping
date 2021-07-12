@@ -9,7 +9,7 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import com.go.shopping.R
 import kotlinx.android.synthetic.main.activity_base.*
-
+@Deprecated("该类嵌套太多，已过时")
 abstract class BaseTitleActivity : BaseActivity() {
 
     override fun setContentView(layoutResID: Int) {

@@ -9,7 +9,7 @@ import com.go.shopping.base_components.toute_table.RouteTable
 import com.go.shopping.ui_base.BasePagerActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-@Route(path = RouteTable.MAIN_ACTITIVTY)
+@Route(path = RouteTable.MAIN_ACTIVITY)
 class MainActivity : BasePagerActivity() {
     private var youLike: Fragment? = null
     private var userShow: Fragment? = null
@@ -39,7 +39,7 @@ class MainActivity : BasePagerActivity() {
 
         val adapter = MainPagerAdapter(this, fragments)
         view_page.adapter = adapter
-        view_page.offscreenPageLimit = 1
+//        view_page.offscreenPageLimit = 1
         view_page.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 nav_view.selectedItemId = nav_view.menu.getItem(position).itemId

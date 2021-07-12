@@ -1,8 +1,8 @@
-package com.go.shopping.base_components.proxy
+package com.go.shopping.proxy
 
 import android.net.Uri
 import android.widget.ImageView
-import com.go.lib_base1.image.interfaces.IImageLoaderProcessor
+import com.go.shopping.lib_base.image.interfaces.IImageLoaderProcessor
 
 object HelperImageLoader :
     IImageLoaderProcessor {

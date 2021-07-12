@@ -5,6 +5,10 @@ import com.go.lib_base1.network.interfaces.ICallback
 import com.go.lib_base1.network.interfaces.IHttpProcessor
 import java.io.File
 
+
+/**
+ * 待优化
+ */
 abstract class BaseViewModel : ViewModel(),
     IHttpProcessor {
     override fun _file(file: File, callback: ICallback) {

@@ -1,5 +1,5 @@
 @file:Suppress("UNCHECKED_CAST")
-package com.go.lib_base1.network
+package com.go.shopping.lib_base.network
 
 import com.google.gson.Gson
 

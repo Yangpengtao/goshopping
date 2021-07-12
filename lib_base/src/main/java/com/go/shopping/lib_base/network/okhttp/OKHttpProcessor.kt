@@ -1,12 +1,12 @@
-package com.go.lib_base1.network.okhttp
+package com.go.shopping.lib_base.network.okhttp
 
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
-import com.go.lib_base1.network.NetworkConstants
-import com.go.lib_base1.network.PrinterNetwork
 import com.go.lib_base1.network.interfaces.ICallback
 import com.go.lib_base1.network.interfaces.IHttpProcessor
+import com.go.shopping.lib_base.network.NetworkConstants
+import com.go.shopping.lib_base.network.PrinterNetwork
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.asRequestBody

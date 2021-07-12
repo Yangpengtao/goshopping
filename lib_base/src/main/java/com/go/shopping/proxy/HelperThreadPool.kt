@@ -1,6 +1,7 @@
-package com.go.shopping.base_components.proxy
+package com.go.shopping.proxy
 
 import com.go.shopping.lib_base.thread_pool.ShoppingPoolExecutor
+import com.go.shopping.lib_base.thread_pool.ShoppingSinglePoolExecutor
 import com.go.shopping.lib_base.thread_pool.interfaces.IThreadProcessor
 
 import java.util.concurrent.Future
@@ -20,6 +21,14 @@ object HelperThreadPool : IThreadProcessor {
         return ShoppingPoolExecutor.getInstance().submit(runnable)
     }
 
+    override fun executeSingle(runnable: Runnable) {
+        ShoppingSinglePoolExecutor.getInstance().execute(runnable)
+    }
+
+    override fun submitSingle(runnable: Runnable): Future<*> {
+        return ShoppingSinglePoolExecutor.getInstance().submit(runnable)
+    }
+
     /**
      *  当线程池调用该方法时,线程池的状态则立刻变成SHUTDOWN状态
      *  此时，则不能再往线程池中添加任何任务
@@ -28,7 +37,7 @@ object HelperThreadPool : IThreadProcessor {
      */
     override fun shutdown() {
         if (!ShoppingPoolExecutor.getInstance().isShutdown)
-        ShoppingPoolExecutor.getInstance().shutdown()
+            ShoppingPoolExecutor.getInstance().shutdown()
     }
 
     /**
@@ -40,7 +49,7 @@ object HelperThreadPool : IThreadProcessor {
      */
     override fun shutdownNow() {
         if (!ShoppingPoolExecutor.getInstance().isShutdown)
-        ShoppingPoolExecutor.getInstance().shutdownNow()
+            ShoppingPoolExecutor.getInstance().shutdownNow()
     }
 
 }

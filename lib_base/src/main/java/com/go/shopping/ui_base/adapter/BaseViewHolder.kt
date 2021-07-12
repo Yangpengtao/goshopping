@@ -1,11 +1,11 @@
-package com.go.shopping.base_components.adapter
+package com.go.shopping.ui_base.adapter
 
 import android.util.SparseArray
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.go.shopping.base_components.proxy.HelperImageLoader
+import com.go.shopping.proxy.HelperImageLoader
 
 /**
  * viewholder父类

@@ -1,4 +1,4 @@
-package com.go.shopping.base_components.proxy
+package com.go.shopping.proxy
 
 import com.go.lib_base1.network.interfaces.ICallback
 import com.go.lib_base1.network.interfaces.IHttpProcessor

@@ -1,4 +1,4 @@
-package com.go.lib_base1.image.interfaces
+package com.go.shopping.lib_base.image.interfaces
 
 import android.net.Uri
 import android.widget.ImageView

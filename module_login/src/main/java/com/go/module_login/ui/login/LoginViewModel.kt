@@ -3,8 +3,8 @@ package com.go.module_login.ui.login
 import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.go.lib_base1.network.HttpCallback
 import com.go.module_login.data.model.LoggedInUser
+import com.go.shopping.lib_base.network.HttpCallback
 import com.go.shopping.ui_base.BaseViewModel
 import java.util.*
 
@@ -23,7 +23,7 @@ import java.util.*
         _loginForm.value = LoginResult(success = true)
         return
 
-        if (!isUserNameValid(username)) {
+        /*if (!isUserNameValid(username)) {
             _loginForm.value = LoginResult(success = false)
         } else if (!isCodeValid(code)) {
             _loginForm.value = LoginResult(success = false)
@@ -41,7 +41,7 @@ import java.util.*
                     _loginForm.value = LoginResult(success = false, error = e)
                 }
             })
-        }
+        }*/
     }
 
 

@@ -5,6 +5,6 @@ object RouteTable {
     const val YOU_LIKE__FRAGMENT = "/you_like/YouLikeFragment"
     const val USER_SHOW_FRAGMENT = "/user_show/UserShowFragment"
     const val MY_GG_FRAGMENT = "/my_gg/My_ggFragment"
-    const val MAIN_ACTITIVTY = "/main/MainActivity"
-    const val LOGIN_ACTITIVTY = "/login/LoginActivity"
+    const val MAIN_ACTIVITY = "/main/MainActivity"
+    const val LOGIN_ACTIVITY = "/login/LoginActivity"
 }

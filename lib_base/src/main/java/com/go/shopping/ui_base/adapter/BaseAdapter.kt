@@ -1,7 +1,6 @@
-package com.go.shopping.base_components.adapter
+package com.go.shopping.ui_base.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 

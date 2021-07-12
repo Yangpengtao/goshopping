@@ -1,9 +1,9 @@
-package com.go.lib_base1.shared_preference
+package com.go.shopping.lib_base.shared_preference
 
 object SpType {
-    const val _STRING = 1
-    const val _FLOAT = 2
-    const val _INT = 3
-    const val _LONG = 4
-    const val _BOOLEAD = 5
+    const val STRING = 1
+    const val FLOAT = 2
+    const val INT = 3
+    const val LONG = 4
+    const val BOOLEAN = 5
 }

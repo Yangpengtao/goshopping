@@ -1,10 +1,12 @@
-package com.go.shopping.base_components.adapter;
+package com.go.shopping.ui_base.adapter;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -16,6 +18,7 @@ public class RecyclerViewUtils {
     private OnItemLongClickListener mOnItemLongClickListener = null;
     private Context context;
 
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     public RecyclerViewUtils(Context context, RecyclerView recyclerView) {
         this.context = context;
         this.mRecyclerView = recyclerView;

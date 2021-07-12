@@ -13,13 +13,14 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.go.module_you_like.data.YouLikeBean
 import com.go.module_you_like.mydialog.DialogActivity
-import com.go.shopping.base_components.adapter.BaseAdapter
-import com.go.shopping.base_components.adapter.BaseViewHolder
-import com.go.shopping.base_components.adapter.RecyclerViewUtils
-import com.go.shopping.base_components.adapter.SpacesItemDecoration
 import com.go.shopping.utils.ToastUtil
 import com.go.shopping.base_components.toute_table.RouteTable
 import com.go.shopping.ui_base.BaseTitleFragment
+import com.go.shopping.ui_base.adapter.BaseAdapter
+import com.go.shopping.ui_base.adapter.BaseViewHolder
+import com.go.shopping.ui_base.adapter.RecyclerViewUtils
+import com.go.shopping.ui_base.adapter.SpacesItemDecoration
+import com.go.shopping.utils.LogPrinter
 import kotlinx.android.synthetic.main.you_like_fragment.*
 import java.util.*
 
@@ -59,8 +60,17 @@ class YouLikeFragment : BaseTitleFragment() {
                 listAdapter1.setmData(it, position)
             }
         })
+
+
+        LogPrinter.error(TAG,"我走了onCreateView")
     }
 
+
+    override fun onDestroy() {
+        super.onDestroy()
+        LogPrinter.error(TAG,"我走了onDestroy")
+
+    }
     /**
      * 数据加载
      */

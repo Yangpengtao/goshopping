@@ -1,11 +1,11 @@
-package com.go.shopping.base_components.adapter
+package com.go.shopping.ui_base.adapter
 
 import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.go.shopping.base_components.R
+import com.go.shopping.R
 
 
 import java.util.ArrayList
