@@ -49,16 +49,16 @@ class MainActivity : BasePagerActivity() {
         nav_view.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.navigation_my_gg -> {
-                    view_page.currentItem = 3
+                    view_page.setCurrentItem(3,false)
                 }
                 R.id.navigation_store -> {
-                    view_page.currentItem = 0
+                    view_page.setCurrentItem(0,false)
                 }
                 R.id.navigation_user_show -> {
-                    view_page.currentItem = 2
+                    view_page.setCurrentItem(2,false)
                 }
                 R.id.navigation_you_like -> {
-                    view_page.currentItem = 1
+                    view_page.setCurrentItem(1,false)
                 }
             }
             true

@@ -7,7 +7,11 @@
  - LinkedTransferQueue：一个由链表结构组成的无界阻塞队列。 LinkedTransferQueue() {} 重点：无界队列
  - LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。  public LinkedBlockingDeque() { this(Integer.MAX_VALUE); } 首先它是有界的，默认为整形最大值。他的特点是可以头进，头取，尾插，尾取
  
- ## ![队列存取图表](https://img-blog.csdnimg.cn/20210712162052802.png#pic_center)
+|方法/处理方式|抛出异常  |返回特殊值 |一直阻塞 | 超时退出|
+|--|--|--|--|--| 
+| 插入方法 | add(e)     | offer(e)   |put(e)    | offer(e,time,unit)  |
+| 移除方法 | remove() | poll()       |take()    |pull(time,unit)       |
+| 检查方法 | element()| peek()     |不可用  |不可用                  |
  ## 四个已封装好的线程池
  - newSingleThreadExecutor
     默认构造函数 ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS,  new LinkedBlockingQueue<Runnable>()));
@@ -30,7 +34,7 @@
         - invokeAll(Collection<? extends Callable<T>> tasks) 执行 集合里所有并返回集合返回值
         - invokeAny(Collection<? extends Callable<T>> tasks)执行 集合里其中一个并返回返回值
  
- -newScheduledThreadPool
+ - newScheduledThreadPool
     默认构造函数 newScheduledThreadPool(int corePoolSize)-> super(corePoolSize, Integer.MAX_VALUE, DEFAULT_KEEP_ALIVE_MILLIS, MILLISECONDS, new DelayedWorkQueue());
     "解释"：必须传一个核心线程数，DEFAULT_KEEP_ALIVE_MILLIS=10，
     三个主要API:
