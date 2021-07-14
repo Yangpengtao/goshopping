@@ -24,7 +24,7 @@ abstract class BaseActivity : AppCompatActivity(), PermissionUtils.PermissiontCa
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        window.setBackgroundDrawable(null)
+//        window.setBackgroundDrawable(null)
         Color.TRANSPARENT
     }
 

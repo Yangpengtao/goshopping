@@ -1,5 +1,6 @@
 package com.go.module_you_like
 
+import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -26,7 +27,7 @@ import java.util.*
 
 @Route(path = RouteTable.YOU_LIKE__FRAGMENT)
 class YouLikeFragment : BaseTitleFragment() {
-    val TAG = "YouLikeFragment"
+    private val TAG = "YouLikeFragment"
 
 
     private lateinit var viewModel: YouLikeViewModel
@@ -38,44 +39,26 @@ class YouLikeFragment : BaseTitleFragment() {
         return R.layout.you_like_fragment
     }
 
-
-    @RequiresApi(Build.VERSION_CODES.M)
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        //set title
+        setTitle()
+    }
+
+
+
+
+    //TODO 在这里初始化  懒加载
+    @RequiresApi(Build.VERSION_CODES.M)
+    override fun loadData() {
         viewModel = ViewModelProviders.of(this).get(YouLikeViewModel::class.java)
         //set srl scheme color
         srl.setColorSchemeColors(ContextCompat.getColor(activity!!, R.color.colorPrimary))
-        //set title
-        setTitle()
+
         //set recycleView
         setRecycleView()
         //loading data
-        loadData()
-        viewModel.getList(0)
-        viewModel.youLikeBean.observe(activity!!, androidx.lifecycle.Observer {
-            if (position == 0) {
-                ToastUtil.show(activity!!, "已经是最新数据")
-                listAdapter1.setmData(it)
-            } else {
-                listAdapter1.setmData(it, position)
-            }
-        })
-
-
-        LogPrinter.error(TAG,"我走了onCreateView")
-    }
-
-
-    override fun onDestroy() {
-        super.onDestroy()
-        LogPrinter.error(TAG,"我走了onDestroy")
-
-    }
-    /**
-     * 数据加载
-     */
-    @RequiresApi(Build.VERSION_CODES.M)
-    private fun loadData() {
+        // todo 这里需要改，支持6.0，没对6.0一下做兼容
         recyclerView.setOnScrollChangeListener { _, _, _, _, _ ->
             if (!recyclerView.canScrollVertically(1)) {
                 position = viewModel.youLikeBean.value!!.size
@@ -89,6 +72,18 @@ class YouLikeFragment : BaseTitleFragment() {
             viewModel.getList(position)
             srl.isRefreshing = false
         }
+        viewModel.getList(0)
+        viewModel.youLikeBean.observe(activity!!, androidx.lifecycle.Observer {
+            if (position == 0) {
+                ToastUtil.show(activity!!, "已经是最新数据")
+                listAdapter1.setmData(it)
+            } else {
+                listAdapter1.setmData(it, position)
+            }
+        })
+
+
+
     }
 
     /**
@@ -152,4 +147,33 @@ class YouLikeFragment : BaseTitleFragment() {
         getRightText_().visibility = View.VISIBLE
         getRightText_().text = getString(R.string.category)
     }
+
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        LogPrinter.error(TAG, "-------onAttach------------")
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        LogPrinter.warning(TAG, "-----onCreate-----")
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        LogPrinter.error(TAG, "---------onDestroy------------")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        LogPrinter.warning(TAG, "-----onResume-----")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        LogPrinter.warning(TAG, "-----onPause-----")
+    }
+
+
 }

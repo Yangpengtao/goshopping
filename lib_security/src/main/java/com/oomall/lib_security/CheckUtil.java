@@ -5,6 +5,11 @@ import java.lang.reflect.InvocationTargetException;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.InstallSourceInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
 
 public class CheckUtil {
 
@@ -15,10 +20,15 @@ public class CheckUtil {
 	 * @return  true 表示是谷歌应用市场
 	 */
 	public static boolean checkGooglePlayStore(Context context) {
-		String installerPackageName = context.getPackageManager()
-				.getInstallerPackageName(context.getPackageName());
-		return installerPackageName != null
-				&& installerPackageName.startsWith("com.google.android");
+		try {
+			InstallSourceInfo installSourceInfo = context.getPackageManager()
+					.getInstallSourceInfo(context.getPackageName());
+			return installSourceInfo != null
+					&& installSourceInfo.getInstallingPackageName().startsWith("com.google.android");
+		} catch (PackageManager.NameNotFoundException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	/**
@@ -60,7 +70,10 @@ public class CheckUtil {
 	 * @return true   已被打开
 	 */
 	public static boolean isDebuggable(Context context) {
-		return (context.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.DONUT) {
+			return (context.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
+		}
+		return false;
 	}
 
 }

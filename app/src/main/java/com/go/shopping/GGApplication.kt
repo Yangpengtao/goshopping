@@ -11,7 +11,5 @@ class GGApplication : BaseApplication() {
 
     override fun onCreate() {
         super.onCreate()
-
-
     }
 }

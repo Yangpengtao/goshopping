@@ -16,6 +16,6 @@
         android:title="@string/title_user_show" />
     <item
         android:id="@+id/navigation_my_gg"
-        android:icon="@drawable/ic_navigation_my_gg"
+        android:icon="@drawable/ic_navigation_mygg"
         android:title="@string/title_my_gg" />
 </menu>

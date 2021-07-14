@@ -1,7 +1,3 @@
 <resources>
     <string name="app_name">逛逛</string>
-    <string name="title_home">首页</string>
-    <string name="title_you_like">猜你喜欢</string>
-    <string name="title_user_show">买家秀</string>
-    <string name="title_my_gg">我的逛逛</string>
 </resources>

@@ -4,18 +4,164 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".SplashActivity">
 
+    <View
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
+        app:layout_constraintEnd_toEndOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toTopOf="@id/guideline_top" />
 
-    <Button
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.20" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_a"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.30" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_b"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.40" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_center"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_left"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_right"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:onClick="goMain"
-        android:text="go main!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="小提示：答对可以攒积分，兑换商品"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toTopOf="@id/guideline_bottom"
+        app:layout_constraintEnd_toEndOf="@id/guideline_center"
+        app:layout_constraintStart_toStartOf="@id/guideline_center" />
 
+    <TextView
+        android:id="@+id/tv_question"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="question"
+        android:textColor="@color/color333"
+        android:textSize="@dimen/sp_16"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintEnd_toEndOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/guideline_top" />
+
+    <TextView
+        android:id="@+id/tv_a"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/logoColor"
+        android:gravity="center"
+        android:minHeight="40dp"
+        android:text="a"
+        app:layout_constraintEnd_toStartOf="@id/guideline_center"
+        app:layout_constraintStart_toStartOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/guideline_a" />
+
+    <TextView
+        android:id="@+id/tv_b"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/logoColor"
+        android:gravity="center"
+        android:minHeight="40dp"
+        android:text="bbbb"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toStartOf="@id/guideline_center"
+        app:layout_constraintTop_toBottomOf="@id/guideline_a" />
+
+    <TextView
+        android:id="@+id/tv_c"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/logoColor"
+        android:gravity="center"
+        android:minHeight="40dp"
+        android:text="cccc"
+        app:layout_constraintEnd_toStartOf="@id/guideline_center"
+        app:layout_constraintStart_toEndOf="@id/guideline_left"
+        app:layout_constraintTop_toBottomOf="@id/guideline_b" />
+
+    <TextView
+        android:id="@+id/tv_d"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@color/logoColor"
+        android:gravity="center"
+        android:minHeight="40dp"
+        android:text="dddd"
+        app:layout_constraintEnd_toStartOf="@id/guideline_right"
+        app:layout_constraintStart_toEndOf="@id/guideline_center"
+        app:layout_constraintTop_toBottomOf="@id/guideline_b" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="每日涨知识"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp_20"
+        app:layout_constraintBottom_toTopOf="@id/guideline_top"
+        app:layout_constraintLeft_toLeftOf="@id/guideline_center"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintRight_toRightOf="@id/guideline_center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="跳过"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="goMain"
+        android:padding="14dp"
+        app:layout_constraintRight_toRightOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

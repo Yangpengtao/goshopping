@@ -4,8 +4,8 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.Build
 import androidx.annotation.RequiresApi
+import com.go.shopping.lib_base.shared_preference.config.SpType
 import com.go.shopping.lib_base.shared_preference.interfaces.ISharedPreferenceProcessor
-import com.go.shopping.proxy.HelperThreadPool
 
 /**
  * sp 生成器
@@ -18,8 +18,7 @@ class SharedPreferenceProcessor(context: Context) :
 
 
     init {
-        sharedPreferences =
-            context.getSharedPreferences("happy_shopping", Context.MODE_PRIVATE)
+        sharedPreferences = context.getSharedPreferences("happy_shopping", Context.MODE_PRIVATE)
     }
 
 

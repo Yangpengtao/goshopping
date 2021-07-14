@@ -8,8 +8,12 @@ import com.go.shopping.lib_base.shared_preference.SharedPreferenceProcessor
 import com.go.shopping.proxy.HelperHttp
 import com.go.shopping.proxy.HelperImageLoader
 import com.go.shopping.proxy.HelperSharedPreference
+import com.go.shopping.proxy.HelperThreadPool
+import com.go.shopping.utils.LogPrinter
+import com.oomall.lib_security.CheckUtil
 
 open class BaseApplication : Application() {
+
     override fun onCreate() {
         super.onCreate()
         if (BuildConfig.DEBUG) {
@@ -18,7 +22,18 @@ open class BaseApplication : Application() {
         }
         ARouter.init(this)
         HelperHttp.init(OKHttpProcessor(this))
-        HelperSharedPreference.init(SharedPreferenceProcessor(this))
         HelperImageLoader.init(GlideProcessor)
+        HelperThreadPool.executeSingle(Runnable {
+            HelperSharedPreference.init(
+                SharedPreferenceProcessor(this)
+            )
+        })
+
+        if (CheckUtil.isEmulator()) {
+            LogPrinter.warning("BaseApplication", "----current display is emulator!");
+        }
+        if (CheckUtil.isDebuggable(this)) {
+            LogPrinter.warning("BaseApplication", "----debuggable is open!");
+        }
     }
 }

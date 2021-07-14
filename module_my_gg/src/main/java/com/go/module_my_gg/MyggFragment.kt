@@ -1,5 +1,6 @@
 package com.go.module_my_gg
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -24,20 +25,34 @@ class MyggFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_mygg, container, false)
     }
 
-    var i = 0
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         btnAdd.setOnClickListener {
             ARouter.getInstance().build(RouteTable.LOGIN_ACTIVITY).navigation()
         }
-        LogPrinter.error(TAG, "我走了onActivityCreated")
-
+        LogPrinter.error(TAG, "-------onActivityCreated------------")
     }
-
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        LogPrinter.error(TAG, "-------onAttach------------")
+    }
     override fun onDestroy() {
         super.onDestroy()
-        LogPrinter.error(TAG, "我走了onDestroy")
+        LogPrinter.error(TAG, "---------onDestroy------------")
+    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        LogPrinter.warning(TAG,"-----onCreate-----")
+
     }
 
+    override fun onResume() {
+        super.onResume()
+        LogPrinter.warning(TAG,"-----onResume-----")
+    }
 
+    override fun onPause() {
+        super.onPause()
+        LogPrinter.warning(TAG,"-----onPause-----")
+    }
 }

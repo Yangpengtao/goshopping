@@ -1,24 +1,100 @@
 package com.go.module_main
 
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.Lifecycle
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter.getInstance
 import com.go.shopping.base_components.toute_table.RouteTable
 import com.go.shopping.ui_base.BasePagerActivity
+import com.go.shopping.utils.LogPrinter
+import com.go.shopping.utils.ToastUtil
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.view.*
+import kotlinx.android.synthetic.main.main_bottom_view.*
 
+/**
+ * 现在手动滑动的时候，稍微一滑动第二个数据就开始加载，是因为数据都在OnCreatedView里加载的数据
+ * 可以换成在OnResume里判断进行懒加载
+ * 必须实现，不然在滑动的时候就加载数据，会卡的  //TODO 重要
+ */
 @Route(path = RouteTable.MAIN_ACTIVITY)
 class MainActivity : BasePagerActivity() {
-    private var youLike: Fragment? = null
-    private var userShow: Fragment? = null
-    private var mygg: Fragment? = null
-    private var home: Fragment? = null
+    private lateinit var youLike: Fragment
+    private lateinit var userShow: Fragment
+    private lateinit var mygg: Fragment
+    private lateinit var home: Fragment
+    //标识viewpager是否执行平滑动画，点击底部菜单不执行，自己手动滑动执行
+    var isSmoothScroll = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setTitleColorTransparent(false)
+        val fragments = initFragment()
+        val adapter = MainPagerAdapter(this, fragments)
+        view_page.adapter = adapter
+//        view_page.isUserInputEnabled = false
+        listener()
+    }
+
+
+    /**
+     * viewpage和navView绑定联动
+     */
+    private fun listener() {
+        btn_home.setOnClickListener(bottomViewClickListener)
+        btn_user_show.setOnClickListener(bottomViewClickListener)
+        btn_you_like.setOnClickListener(bottomViewClickListener)
+        btn_my_gg.setOnClickListener(bottomViewClickListener)
+
+        view_page.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                isSmoothScroll = true
+                setPosition(position)
+            }
+        })
+    }
+
+    /**
+     * 仅为bottomView提供
+     */
+    private val bottomViewClickListener = View.OnClickListener {
+        //将滑动动画去掉
+        isSmoothScroll = false
+        when (it.id) {
+            R.id.btn_home -> setPosition(0)
+            R.id.btn_you_like ->setPosition(1)
+            R.id.btn_user_show -> setPosition(2)
+            R.id.btn_my_gg -> setPosition(3)
+        }
+    }
+
+    private fun setPosition(position: Int) {
+        view_page.setCurrentItem(position, isSmoothScroll)
+        //这里可做判断，保存一下前一次的position,这里就一视同仁了,源码如果没判断，就够了
+        btn_home.isSelected = false
+        btn_you_like.isSelected = false
+        btn_user_show.isSelected = false
+        btn_my_gg.isSelected = false
+        when(position){
+            0-> btn_home.isSelected = true
+            1-> btn_you_like.isSelected = true
+            2-> btn_user_show.isSelected = true
+            3-> btn_my_gg.isSelected = true
+        }
+    }
+
+    /**
+     * 初始化四个fragment
+     */
+    private fun initFragment(): Array<Fragment?> {
         home = getInstance()
             .build(RouteTable.HOME_FRAGMENT)
             .navigation() as Fragment
@@ -36,33 +112,6 @@ class MainActivity : BasePagerActivity() {
         fragments[1] = youLike
         fragments[2] = userShow
         fragments[3] = mygg
-
-        val adapter = MainPagerAdapter(this, fragments)
-        view_page.adapter = adapter
-//        view_page.offscreenPageLimit = 1
-        view_page.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                nav_view.selectedItemId = nav_view.menu.getItem(position).itemId
-            }
-        })
-
-        nav_view.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.navigation_my_gg -> {
-                    view_page.setCurrentItem(3,false)
-                }
-                R.id.navigation_store -> {
-                    view_page.setCurrentItem(0,false)
-                }
-                R.id.navigation_user_show -> {
-                    view_page.setCurrentItem(2,false)
-                }
-                R.id.navigation_you_like -> {
-                    view_page.setCurrentItem(1,false)
-                }
-            }
-            true
-        }
+        return fragments
     }
-
 }
