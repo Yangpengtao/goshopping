@@ -13,7 +13,7 @@
 
 	<View
 		android:id="@+id/v_slither_left"
-		android:layout_width="80dp"
+		android:layout_width="78dp"
 		android:layout_height="match_parent"
 		android:background="@drawable/slither_veirfy_left" />
 

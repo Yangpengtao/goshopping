@@ -45,6 +45,7 @@ class SlitherVerifyView : RelativeLayout {
     }
 
 
+    @SuppressLint("ClickableViewAccessibility")
     fun initView() {
         LayoutInflater.from(context).inflate(R.layout.framlayout_slither_verify, this)
         leftLayoutParams = v_slither_left.layoutParams as FrameLayout.LayoutParams
