@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--适配刘海屏-->
     <style name="AppTheme.Launcher">
         <item name="android:windowBackground">@drawable/splash_bg</item>
         <item name="android:windowFullscreen">true</item>
