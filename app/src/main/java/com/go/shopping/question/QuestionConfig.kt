@@ -1,6 +1,7 @@
 package com.go.shopping.question
 
 import android.util.SparseArray
+import com.go.shopping.data.QuestionBean
 
 /**
  *@author YPT
@@ -19,7 +20,7 @@ object QuestionConfig {
             "C. produced",
             "D. being produced",
             "B. are produced",
-            "动词被动语态。be+动词过去分词，表示被动语态。句意：灰色建筑是工人住的地方，而白色建筑是生产部件的地方。故选B。"
+            "解析：动词被动语态。be+动词过去分词，表示被动语态。句意：灰色建筑是工人住的地方，而白色建筑是生产部件的地方。故选B。"
         )
         val b = QuestionBean(
             "They got there an hour ( ) than the others. ",
@@ -28,7 +29,7 @@ object QuestionConfig {
             "C. more early",
             "D. earlier",
             "D. earlier",
-            "比较级。与形容词一样，副词比较级常和than连用。句意：他们比别人早到一个小时。故选D。"
+            "解析：比较级。与形容词一样，副词比较级常和than连用。句意：他们比别人早到一个小时。故选D。"
         )
         val c = QuestionBean(
             "The harder you study, ( ) you will learn.",
@@ -37,7 +38,7 @@ object QuestionConfig {
             "C. the more",
             "D. much more",
             "C. the more",
-            "比较级。用两个叠加的比较级形容词或副词可以表示“越……越……”。句意：你学习越努力，学到的东西越多。故选C。"
+            "解析：比较级。用两个叠加的比较级形容词或副词可以表示“越……越……”。句意：你学习越努力，学到的东西越多。故选C。"
         )
         val d = QuestionBean(
             "( ) you know, David has been well lately. ",
@@ -46,7 +47,7 @@ object QuestionConfig {
             "C. What",
             "D. When",
             "B. As",
-            "as代表主句的内容，意为“正像……，如同……”。句意：正像你所知道的那样，Davd近来身体很好。故选B。"
+            "解析：as代表主句的内容，意为“正像……，如同……”。句意：正像你所知道的那样，Davd近来身体很好。故选B。"
         )
         val e = QuestionBean(
             "Sunday is the day ( ) people usually don't go to work.",
@@ -55,7 +56,7 @@ object QuestionConfig {
             "C. in which",
             "D. that",
             "A. when",
-            "定语从句。在表示时间的一些特定名词如time、day、 morning、 month、year等之后可以接一个由when引出的限制性定语从句。句意： 星期天是人们通常不上班的日子。故选A。"
+            "解析：定语从句。在表示时间的一些特定名词如time、day、 morning、 month、year等之后可以接一个由when引出的限制性定语从句。句意： 星期天是人们通常不上班的日子。故选A。"
         )
         val f = QuestionBean(
             "Australia is one of the few countries ( ) people drive on the left of the road.",
@@ -64,7 +65,7 @@ object QuestionConfig {
             "C. where",
             "D. on which",
             "C. where",
-            "定语从句。在表示地点的一些特定名词如 place、room、 countrv、 street等之后，可接一个由 where或 in which引出的限制性定语从句。句意：澳大利亚是少数几个沿左侧开车的国家之一。故选C。"
+            "解析：定语从句。在表示地点的一些特定名词如 place、room、 countrv、 street等之后，可接一个由 where或 in which引出的限制性定语从句。句意：澳大利亚是少数几个沿左侧开车的国家之一。故选C。"
         )
         val g = QuestionBean(
             "The higher the temperature ( ) the liquid evaporates.",
@@ -73,7 +74,7 @@ object QuestionConfig {
             "C. the slower",
             "D. the more slower",
             "A. the faster",
-            "比较级。“the+形容词或副词比较级……，the+形容词或副词比较级……，表示“越……，越……。句意：温度越高，液体蒸发得越越快。故选A。"
+            "解析：比较级。“the+形容词或副词比较级……，the+形容词或副词比较级……，表示“越……，越……。句意：温度越高，液体蒸发得越越快。故选A。"
         )
         val h = QuestionBean(
             "She wonders ( ) will happen to her private life in the future. ",
@@ -82,7 +83,7 @@ object QuestionConfig {
             "C. this",
             "D. what",
             "D. what",
-            "名词性从句（宾语从句）。that和what都能引导宾语从句，但是that在从句中不作任成分（无词义），而what有词义，在从句中作主语。"
+            "解析：名词性从句（宾语从句）。that和what都能引导宾语从句，但是that在从句中不作任成分（无词义），而what有词义，在从句中作主语。"
         )
         val i = QuestionBean(
             " It was well known that Thomas Edison ( ) the electric lamp.",
@@ -91,7 +92,7 @@ object QuestionConfig {
             "C. found",
             "D. developed",
             "B. invented",
-            "动词词义辨析。 invent，发明； discover；发现；found（find的过去时），发现； develop，研究、发展。句意：大家都知道托马斯爱迪生发明了电灯。故选B。"
+            "解析：动词词义辨析。 invent，发明； discover；发现；found（find的过去时），发现； develop，研究、发展。句意：大家都知道托马斯爱迪生发明了电灯。故选B。"
         )
         val j = QuestionBean(
             "The workers are busy ( ) models for the exhibition.",
@@ -100,7 +101,7 @@ object QuestionConfig {
             "C. being making",
             "D. making",
             "D. making",
-            "非谓语动词。 be busy+(in)+动名词，等同于be busy with + n.，表示忙于做某事。句意：那些工人在忙着为展览会做模型。故选D。"
+            "解析：非谓语动词。 be busy+(in)+动名词，等同于be busy with + n.，表示忙于做某事。句意：那些工人在忙着为展览会做模型。故选D。"
         )
         questionList.append(1, a)
         questionList.append(2, b)

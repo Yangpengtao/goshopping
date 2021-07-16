@@ -1,4 +1,4 @@
-package com.go.shopping.question
+package com.go.shopping.data
 
 /**
  *@author YPT

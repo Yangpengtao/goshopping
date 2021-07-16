@@ -13,17 +13,17 @@ class YouLikeViewModel : BaseViewModel() {
     /**
      * 测试
      */
-    fun getList(position:Int) {
-        if (position!=0){
+    fun getList(position: Int) {
+        if (position != 0) {
             val list = ArrayList<YouLikeBean>()
             _youLike.value?.let { list.addAll(it) }
             list.addAll(data())
             _youLike.value = list
-        }
-        else{
-            _youLike.value=data()
+        } else {
+            _youLike.value = data()
         }
     }
+
     operator fun <T> MutableLiveData<ArrayList<T>>.plusAssign(values: List<T>) {
         val value = this.value ?: arrayListOf()
         value.addAll(values)
