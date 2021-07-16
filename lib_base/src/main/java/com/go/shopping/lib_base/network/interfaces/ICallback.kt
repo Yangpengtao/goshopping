@@ -1,4 +1,4 @@
-package com.go.lib_base1.network.interfaces
+package com.go.shopping.lib_base.network.interfaces
 
 
 /**

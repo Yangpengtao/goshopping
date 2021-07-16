@@ -66,7 +66,6 @@ class SplashActivity : BaseActivity(), ViewModelStoreOwner {
 
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
-        onResume()
         LogPrinter.error(mTAG, "-------------onAttachedToWindow-----------------")
     }
 
