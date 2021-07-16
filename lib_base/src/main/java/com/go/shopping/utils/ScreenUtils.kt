@@ -11,7 +11,7 @@ object ScreenUtils {
     //获取屏幕高
     fun getScreenHeight(context: Context): Int {
         val dm = context.resources.displayMetrics
-       return dm.heightPixels
+        return dm.heightPixels
     }
 
     //获取屏幕宽
@@ -30,4 +30,11 @@ object ScreenUtils {
         return context.resources.displayMetrics
     }
 
+    fun px2dp(context: Context, px: Int): Int {
+        return (px / getScreen(context).density).toInt()
+    }
+
+    fun dp2px(context: Context, dp: Int): Int {
+        return (dp * getScreen(context).density).toInt()
+    }
 }

@@ -2,5 +2,6 @@
     <string name="app_name">逛逛</string>
     <string name="jump">跳过</string>
     <string name="splash_title">每日涨知识</string>
-    <string name="tip">小提示：答对可以攒积分，兑换商品</string>
+    <string name="tip">小提示：答题可以攒积分，可兑换相关积分商品。在设置里可以对答题进行关闭与开启。</string>
+    <string name="enter">点击进入</string>
 </resources>
