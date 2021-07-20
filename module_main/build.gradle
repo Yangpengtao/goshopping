@@ -52,8 +52,6 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.2.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.0.0'
     implementation project(path: ':lib_common')
     kapt  'com.alibaba:arouter-compiler:1.2.1'
 }

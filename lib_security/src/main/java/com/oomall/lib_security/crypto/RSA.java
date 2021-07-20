@@ -2,7 +2,6 @@ package com.oomall.lib_security.crypto;
 
 import android.os.Build;
 
-import androidx.annotation.RequiresApi;
 
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
@@ -24,7 +23,6 @@ public class RSA {
     private static final String RSA_ALGORITHM = "RSA/ECB/PKCS1Padding";
 
     //加密函数，传入明文，公钥；返回密文Base64
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static String encrypt(int data, String key) {
         //由于DH参数均为int类型，这里设计成int加密
         String message = String.valueOf(data);
@@ -36,7 +34,9 @@ public class RSA {
                     .generatePublic(new X509EncodedKeySpec(decodedPubKey));
             Cipher cipher = Cipher.getInstance(RSA_ALGORITHM);
             cipher.init(Cipher.ENCRYPT_MODE, publicKey);
-            result = cipher.doFinal(message.getBytes(StandardCharsets.UTF_8));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                result = cipher.doFinal(message.getBytes(StandardCharsets.UTF_8));
+            }
         } catch (InvalidKeySpecException | NoSuchAlgorithmException | BadPaddingException | NoSuchPaddingException | InvalidKeyException | IllegalBlockSizeException e) {
             e.printStackTrace();
         }
@@ -45,7 +45,6 @@ public class RSA {
 
 
     //传入密文和密钥，返回明文
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static String decypt(String encrypted, String key) {
         byte[] decodedKey = DataUtils.base64Decode(key);
         byte[] content = DataUtils.base64Decode(encrypted);

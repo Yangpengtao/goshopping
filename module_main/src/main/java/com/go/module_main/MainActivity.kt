@@ -3,20 +3,12 @@ package com.go.module_main
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.Lifecycle
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter.getInstance
 import com.go.shopping.base_components.toute_table.RouteTable
 import com.go.shopping.ui_base.BasePagerActivity
-import com.go.shopping.utils.LogPrinter
-import com.go.shopping.utils.ToastUtil
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.main_bottom_view.*
 
 /**

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.View
+import android.webkit.WebView
 import android.widget.CompoundButton
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -23,6 +24,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener, SlitherVerifyView.Ca
     private lateinit var loginViewModel: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        WebView(this).loadUrl("33333")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         setTitleColorTransparent(false)
