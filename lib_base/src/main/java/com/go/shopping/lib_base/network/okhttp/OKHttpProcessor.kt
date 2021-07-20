@@ -3,10 +3,10 @@ package com.go.shopping.lib_base.network.okhttp
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
-import com.go.lib_base1.network.interfaces.ICallback
-import com.go.lib_base1.network.interfaces.IHttpProcessor
 import com.go.shopping.lib_base.network.NetworkConstants
 import com.go.shopping.lib_base.network.PrinterNetwork
+import com.go.shopping.lib_base.network.interfaces.ICallback
+import com.go.shopping.lib_base.network.interfaces.IHttpProcessor
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -43,7 +43,7 @@ class OKHttpProcessor(context: Context) : IHttpProcessor {
         mHandler = Handler(Looper.getMainLooper())
     }
 
-    override fun _post(url: String, params: Map<String, Any>, callback: ICallback) {
+    override fun post(url: String, params: Map<String, Any>, callback: ICallback) {
         PrinterNetwork.e(tag, "URL:$url")
         PrinterNetwork.e(tag, "params:$params")
         val requestBody = appendBody(params)
@@ -83,7 +83,7 @@ class OKHttpProcessor(context: Context) : IHttpProcessor {
     }
 
 
-    override fun _get(url: String, params: Map<String, Any>, callback: ICallback) {
+    override fun get(url: String, params: Map<String, Any>, callback: ICallback) {
         val request = getRequestBuilder()
             .url(NetworkConstants.BASE_URL + url)
             .get()
@@ -109,7 +109,7 @@ class OKHttpProcessor(context: Context) : IHttpProcessor {
         })
     }
 
-    override fun _file(file: File, callback: ICallback) {
+    override fun file(file: File, callback: ICallback) {
         PrinterNetwork.e(tag, "file.Name()" + file.name)
         val fileBody = file.asRequestBody("image/png".toMediaTypeOrNull())
         val requestBody = MultipartBody.Builder()

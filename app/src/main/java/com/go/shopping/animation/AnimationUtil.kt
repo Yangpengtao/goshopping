@@ -2,11 +2,12 @@ package com.go.shopping.animation
 
 import android.view.View
 import android.view.ViewAnimationUtils
+import com.go.shopping.utils.ScreenUtils
 import kotlin.math.hypot
 
 object AnimationUtil {
 
-    private const val duration = 1000L
+    private const val duration = 2000L
 
     /**
      * offset[0] x偏移量
@@ -16,7 +17,7 @@ object AnimationUtil {
     fun startRevealAnim(view: View ) {
 
         val centerX: Int = view.width / 2
-        val centerY: Int = view.height / 2
+        val centerY: Int = view.height / 2  //+ScreenUtils.dp2px(view.context,40)
         val endRadius = hypot(view.width.toDouble(), view.height.toDouble())
         val circularReveal = ViewAnimationUtils.createCircularReveal(
             view,

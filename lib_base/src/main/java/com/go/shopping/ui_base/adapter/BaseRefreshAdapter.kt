@@ -1,6 +1,7 @@
 package com.go.shopping.ui_base.adapter
 
 import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -86,7 +87,7 @@ abstract class BaseRefreshAdapter<T>
         if (data != null) {
             this.mData = ArrayList()
             this.mData!!.addAll(data)
-            val handler1 = Handler()
+            val handler1 = Handler(Looper.getMainLooper())
             val r = Runnable { notifyDataSetChanged() }
             handler1.post(r)
         }
@@ -118,7 +119,7 @@ abstract class BaseRefreshAdapter<T>
     fun showComplete() {
         isRefreshing = false
         setLoadType(LOADE_MORE_TYPE)
-        val handler1 = Handler()
+        val handler1 = Handler(Looper.getMainLooper())
         val r = Runnable { notifyDataSetChanged() }
         handler1.post(r)
     }
@@ -129,7 +130,7 @@ abstract class BaseRefreshAdapter<T>
     fun showNoMore() {
         isRefreshing = false
         setLoadType(LOAD_NO_MORE_TYPE)
-        val handler1 = Handler()
+        val handler1 = Handler(Looper.getMainLooper())
         val r = Runnable { notifyDataSetChanged() }
         handler1.post(r)
     }
@@ -140,7 +141,7 @@ abstract class BaseRefreshAdapter<T>
     fun showError() {
         isRefreshing = false
         setLoadType(LOAD_ERROR_TYPE)
-        val handler1 = Handler()
+        val handler1 = Handler(Looper.getMainLooper())
         val r = Runnable { notifyDataSetChanged() }
         handler1.post(r)
     }

@@ -7,8 +7,8 @@ import java.io.File
  */
 interface IHttpProcessor {
     //网络访问：POST,GET,DELETE,PUT,UPDATE
-    fun _post(url: String, params: Map<String, Any>, callback: ICallback)
+    fun post(url: String, params: Map<String, Any>, callback: ICallback)
 
-    fun _get(url: String, params: Map<String, Any>, callback: ICallback)
-    fun _file(file: File, callback: ICallback)
+    fun get(url: String, params: Map<String, Any>, callback: ICallback)
+    fun file(file: File, callback: ICallback)
 }

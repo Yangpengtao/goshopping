@@ -1,11 +1,11 @@
 @file:Suppress("UNCHECKED_CAST")
 package com.go.shopping.lib_base.network
 
+import com.go.shopping.lib_base.network.interfaces.ICallback
 import com.google.gson.Gson
 
 import java.lang.reflect.ParameterizedType
 
-import com.go.lib_base1.network.interfaces.ICallback
 
 /**
  * 统一数据处理类

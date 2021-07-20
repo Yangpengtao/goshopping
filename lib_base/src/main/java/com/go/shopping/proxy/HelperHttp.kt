@@ -1,7 +1,7 @@
 package com.go.shopping.proxy
 
-import com.go.lib_base1.network.interfaces.ICallback
-import com.go.lib_base1.network.interfaces.IHttpProcessor
+import com.go.shopping.lib_base.network.interfaces.ICallback
+import com.go.shopping.lib_base.network.interfaces.IHttpProcessor
 import java.io.File
 
 import java.io.UnsupportedEncodingException
@@ -16,18 +16,18 @@ import java.net.URLEncoder
 object HelperHttp : IHttpProcessor {
 
 
-    override fun _post(url: String, params: Map<String, Any>, callback: ICallback) {
+    override fun post(url: String, params: Map<String, Any>, callback: ICallback) {
         //        final String finalUrl =appendParams(url,params);
-        mHttpProcessor!!._post(url, params, callback)
+        mHttpProcessor!!.post(url, params, callback)
     }
 
-    override fun _get(url: String, params: Map<String, Any>, callback: ICallback) {
+    override fun get(url: String, params: Map<String, Any>, callback: ICallback) {
         val finalUrl = appendParams(url, params)
-        mHttpProcessor!!._get(finalUrl, params, callback)
+        mHttpProcessor!!.get(finalUrl, params, callback)
     }
 
-    override fun _file(file: File, callback: ICallback) {
-        mHttpProcessor!!._file(file, callback)
+    override fun file(file: File, callback: ICallback) {
+        mHttpProcessor!!.file(file, callback)
 
     }
 

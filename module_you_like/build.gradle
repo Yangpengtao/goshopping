@@ -18,7 +18,13 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
-
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
     defaultConfig {
         if (isAllModule.toBoolean() || isMyggModule.toBoolean()) {
             applicationId "com.go.module_you_like"

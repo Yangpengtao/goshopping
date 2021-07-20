@@ -5,7 +5,7 @@ package com.go.shopping.data
  *@version
  *@date 2021/7/14
  */
-data class QuestionBean (
+data    class QuestionBean(
     var question: String = "",
     var optionA: String = "",
     var optionB: String = "",
